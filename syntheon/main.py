@@ -17,10 +17,15 @@ obj_dict = {
         "converter": VitalConverter,
         "inferencer": VitalInferencer,
         "file_ext": "vital"
+    },
+    "neuro": { #new
+        "converter": NeuroConverter,
+        "inferencer": NeuroInferencer,
+        "file_ext": "pre"
     }
 }
 
-def infer_params(input_audio_name, synth_name, enable_eval=False):
+def infer_params(input_audio_name, synth_name, enable_eval=False, return_params=False):
     if synth_name not in obj_dict:
         raise ValueError("Synth name {} not available for parameter inference".format(synth_name))
     
@@ -32,4 +37,5 @@ def infer_params(input_audio_name, synth_name, enable_eval=False):
     output_fname = "{}_output.{}".format(synth_name, obj_dict[synth_name]["file_ext"])
     converter.parseToPluginFile(output_fname)
 
-    return output_fname, eval_dict
+    if return_params: return output_fname, eval_dict, params
+    else: return output_fname, eval_dict
