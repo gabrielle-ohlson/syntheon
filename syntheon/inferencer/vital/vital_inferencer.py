@@ -134,6 +134,7 @@ class VitalInferencer(Inferencer):
         return inference_output
     
     def convert_to_preset(self, inference_output):
+        print('inference_output:', inference_output) #remove #debug
         with open("syntheon/inferencer/vital/init.vital") as f:
             x = json.load(f)
 
