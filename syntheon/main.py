@@ -18,11 +18,11 @@ obj_dict = {
         "inferencer": VitalInferencer,
         "file_ext": "vital"
     },
-    "neuro": { #new
-        "converter": NeuroConverter,
-        "inferencer": NeuroInferencer,
-        "file_ext": "pre"
-    }
+    # "neuro": { #new
+    #     "converter": NeuroConverter,
+    #     "inferencer": NeuroInferencer,
+    #     "file_ext": "pre"
+    # }
 }
 
 def infer_params(input_audio_name, synth_name, enable_eval=False, return_params=False):
